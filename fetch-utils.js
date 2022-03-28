@@ -42,6 +42,16 @@ export async function completeTodo(id) {
     return checkError(response);
 }
 
+export async function incompleteTodo(id) {
+    // find the and update (set complete to true), the todo that matches the correct id
+    const response = await client
+        .from('todos')
+        .update({ complete: false })
+        .match({ id: id }); 
+
+    return checkError(response);
+}
+
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
 }

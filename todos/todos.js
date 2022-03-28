@@ -5,6 +5,7 @@ import {
     getTodos,
     logout,
     deleteAllTodos, 
+    incompleteTodo
 } from '../fetch-utils.js';
 import { renderTodo } from '../render-utils.js';
 
@@ -44,7 +45,13 @@ async function displayTodos() {
         // on click, complete that todo
         todoEl.addEventListener('click', () => {
             todoEl.classList.toggle('complete');
-            completeTodo(toDo.id);
+
+            if (todoEl.classList.contains('complete')) {
+                completeTodo(toDo.id);
+            } else {
+                incompleteTodo(toDo.id);
+            }
+            
         });
 
         todosEl.append(todoEl);
