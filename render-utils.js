@@ -2,7 +2,7 @@ export function renderTodo(todo) {
     // create a div and a p tag
     // depending on whether the todo is complete, give the div the appropriate css class ('complete' or 'incomplete')
     const toDoDiv = document.createElement('div');
-    const toDoName = document.createElement('div');
+    const toDoName = document.createElement('p');
 
     if (todo.complete) {
         toDoDiv.classList.add('complete');
