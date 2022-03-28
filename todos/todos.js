@@ -24,7 +24,7 @@ todoForm.addEventListener('submit', async (e) => {
 
     const todo = generateToDoObject(todoName);
 
-    createTodo(todo);
+    await createTodo(todo);
 
     todoForm.reset();
 
@@ -32,10 +32,10 @@ todoForm.addEventListener('submit', async (e) => {
 });
 
 async function displayTodos() {
+    todosEl.innerHTML = '';
     // fetch the todos
     const todos = await getTodos();
     // display the list of todos
-    console.log(todos);
     for (let toDo of todos) {
         console.log(toDo);
         const todoEl = renderTodo(toDo);
