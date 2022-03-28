@@ -69,7 +69,7 @@ logoutButton.addEventListener('click', () => {
 
 deleteButton.addEventListener('click', async () => {
     // delete all todos
-    deleteAllTodos();
+    await deleteAllTodos();
     // then refetch and display the updated list of todos
     displayTodos();
 });
